@@ -28,3 +28,9 @@ type State interface {
 	// Key returns a unique integer that determines equality for different states.
 	Key() int
 }
+
+// Valuator defines types capable of computing state-value and action-value functions.
+type Valuator interface {
+	ActionValue(s State, a Action) float32
+	StateValue(s State) float32
+}
