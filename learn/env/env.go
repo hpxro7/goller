@@ -16,17 +16,17 @@ type Behavior interface {
 
 type Action int
 
-// State types define a state along with the reward and time-step that is associated with
+// State defines a state along with the reward and time-step that is associated with
 // entering that state.
 // Note that two State instances can have a different time-step and reward but be cannonically
 // equivalent states.
-type State interface {
-	// Time returns the time-step of this State
-	Time() int
-	// Reward returns the reward gained when this state was entered.
-	Reward() float32
-	// Key returns a unique integer that determines equality for different states.
-	Key() int
+type State struct {
+	// The time-step of this State.
+	Time int
+	// The reward gained when this state was entered.
+	Reward float32
+	// A unique integer that determines equality for different states.
+	Key int
 }
 
 // Valuator defines types capable of computing state-value and action-value functions.
